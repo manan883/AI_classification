@@ -31,6 +31,16 @@ class video_capture():
                 root.info('Creating...' + name)
                 cv2.imwrite(name, frame)
                 os.remove(temp_file_path)
+
+                cv2.putText(frame, className, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                cv2.imshow('Video', frame)
+
+                # Break the loop if 'q' is pressed
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    break
+
+
+
                 currentFrame += 1
             else:
                 break
